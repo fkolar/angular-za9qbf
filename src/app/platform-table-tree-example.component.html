@@ -1,0 +1,33 @@
+<div class="a-general-info-table">
+    <fdp-table
+        [dataSource]="source"
+        class="a-general-info-table"
+        [isTreeTable]="true"
+        [virtualScroll]="true"
+        [pageScrolling]="true"
+        [pageSize]="10"
+        [bodyHeight]="'10rem'"
+        selectionMode="multiple"
+        [enableTristateMode]="true"
+        relationKey="children"
+        emptyTableMessage="No data found"
+        [dropPredicate]="dropPredicate"
+        (rowSelectionChange)="onRowSelectionChange($event)"
+        (rowToggleOpenState)="onRowToggleOpenState($event)"
+        (rowsRearrange)="onRowsRearrange($event)"
+    >
+        <fdp-table-toolbar title="Order Line Items" [hideItemCount]="false" [showExpandCollapseButtons]="true">
+            <fdp-table-toolbar-actions>
+                <fdp-button label="Toggle first row" (click)="toggleFirstRow()"></fdp-button>
+            </fdp-table-toolbar-actions>
+        </fdp-table-toolbar>
+
+        <fdp-column name="name" key="name" label="Name" align="start"></fdp-column>
+
+        <fdp-column name="description" key="description" label="Description"></fdp-column>
+
+        <fdp-column name="price" key="price.value" label="Price" align="end"></fdp-column>
+
+        <fdp-column name="status" key="status" label="Status" align="center"></fdp-column>
+    </fdp-table>
+</div>
